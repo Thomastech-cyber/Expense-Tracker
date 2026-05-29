@@ -7,8 +7,19 @@ def add_expense(expense, amount):
 def calculate_total(expenses):
   return sum(expenses)
 
+
 def main():
-  amount = float(input("Enter the amount of the expense: "))
-  add_expense(expense, amount)
-  total = calculate_total(expense)
-  print("Total expenses:", total)
+  while True:
+    user_input = input("Do you want to add an expense? (yes/no): ")
+
+
+    if user_input.lower() == "no":
+      break
+
+
+    amount = float(input("Enter the amount of the expense: "))
+    add_expense(expense, amount)
+    total = calculate_total(expense)
+    print("Total expenses:", total)
+
+main()
