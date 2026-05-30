@@ -1,3 +1,6 @@
+from random import choice
+
+
 expense = []
 
 def add_expense(expense, amount):
@@ -10,16 +13,22 @@ def calculate_total(expenses):
 
 def main():
   while True:
-    user_input = input("Do you want to add an expense? (yes/no): ")
-
-
-    if user_input.lower() == "no":
+    action = input("Enter 'add' to add an expense, 'total' to calculate total expenses, or 'exit' to quit: ")
+    
+    if action == 'add':
+      amount = float(input("Enter the expense amount: "))
+      add_expense(expense, amount)
+      print(f"Added expense: {amount}")
+    
+    elif action == 'total':
+      total = calculate_total(expense)
+      print(f"Total expenses: {total}")
+    
+    elif action == 'exit':
+      print("Exiting the program.")
       break
-
-
-    amount = float(input("Enter the amount of the expense: "))
-    add_expense(expense, amount)
-    total = calculate_total(expense)
-    print("Total expenses:", total)
+    
+    else:
+      print("Invalid action. Please try again.")
 
 main()
